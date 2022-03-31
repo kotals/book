@@ -1,0 +1,18 @@
+.container{
+    margin: 100px 150px;
+    min-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tableContainerHeader{
+    display: flex;
+}
+
+.messageEmpty{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
