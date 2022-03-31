@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useCustomContext } from '../../context';
-import { ModalEdit } from '../Modal/Modal';
+import { Form } from '../Form/Form';
 
 export const Header = () => {
   const { onChangeFile, setItemsExcel, onChangeSort } = useCustomContext();
@@ -19,9 +19,7 @@ export const Header = () => {
         style={{
           width: '300px',
         }}
-      >
-        <input type="file" onChange={onChangeFile} className="form-control" />
-      </div>
+      ></div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
         <div style={{ width: '250px', marginTop: '-11px' }}>
           <label>Сортировать:</label>
@@ -41,18 +39,21 @@ export const Header = () => {
             <option value="iheight">по высоте</option>
           </select>
         </div>
-        <div style={{ width: '250px' }}>
-          <Button variant="dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Edit
-          </Button>
-
-          <Button className="m-2" variant="dark" onClick={onResetData}>
-            Сбросить настройки
+        <div style={{ width: '250px', position: 'relative' }}>
+          <Form />
+          <Button
+            className="m-2"
+            style={{ position: 'absolute', top: 0, right: '50px' }}
+            variant="dark"
+            onClick={onResetData}
+          >
+            X
           </Button>
         </div>
-        <div style={{ width: '250px' }}></div>
+        <div style={{ width: '250px' }}>
+          <input type="file" onChange={onChangeFile} className="form-control" />
+        </div>
       </div>
-      <ModalEdit />
     </>
   );
 };
